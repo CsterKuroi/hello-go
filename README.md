@@ -52,3 +52,10 @@ import (
     "github.com/go-sql-driver/mysql"
 )   
 ```
+
+## references
+http://www.yiibai.com/go/go_start.html
+http://www.runoob.com/go/go-tutorial.html
+http://studygolang.com/articles/2059
+https://godoc.org/
+https://play.golang.org/
