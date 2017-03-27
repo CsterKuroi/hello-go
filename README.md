@@ -38,3 +38,17 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0"
 CXX="g++"
 CGO_ENABLED="1
 ```
+4.import
+```
+import (
+    "encoding/json"
+    "strings"
+
+    "myproject/models"
+    "myproject/controller"
+    "myproject/utils"
+
+    "github.com/astaxie/beego"
+    "github.com/go-sql-driver/mysql"
+)   
+```
