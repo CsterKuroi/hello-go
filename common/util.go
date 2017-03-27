@@ -13,7 +13,7 @@ func Serialize(dat map[string]interface{}) string {
 	return string(str)
 }
 
-func Deserialize(str string)  map[string]interface{} {
+func Deserialize(str string) map[string]interface{} {
 	var dat map[string]interface{}
 	err := json.Unmarshal([]byte(str), &dat)
         if  err != nil {
@@ -23,15 +23,14 @@ func Deserialize(str string)  map[string]interface{} {
 }
 
 
-func main(){
+func main() {
 	jsonStr := `{"host": "http://localhost:9090","port": 9090,"analytics_file": "","static_file_version": 1,"static_dir": "E:/Project/goTest/src/","templates_dir": "E:/Project/goTest/src/templates/","serTcpSocketHost": ":12340","serTcpSocketPort": 12340,"fruits": ["apple", "peach"]}`
         dat := Deserialize(jsonStr)
-        fmt.Println("==============json str 转map=======================")
+        fmt.Println("===json 2 map===")
         fmt.Println(dat)
         fmt.Println(dat["host"])
-
-        fmt.Println("================map 到json str=====================") 
+        fmt.Println("===map 2 json===")
 	str := Serialize(dat)
-	fmt.Println(str) 
+	fmt.Println(str)
 }
 
