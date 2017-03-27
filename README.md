@@ -1,6 +1,6 @@
 #hello-go
 
- **Ubuntu16.04** 
+##For Ubuntu16.04 server
 
 1.install by apt-get
 ```
@@ -38,7 +38,8 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fmessage-length=0"
 CXX="g++"
 CGO_ENABLED="1
 ```
-4.import
+
+##Golang Format
 ```
 import (
     "encoding/json"
@@ -53,7 +54,7 @@ import (
 )   
 ```
 
-## references
+## References
 - http://www.yiibai.com/go/go_start.html
 - http://www.runoob.com/go/go-tutorial.html
 - http://studygolang.com/articles/2059
