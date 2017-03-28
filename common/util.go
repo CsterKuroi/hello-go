@@ -1,9 +1,17 @@
 package main
 import (
 	"encoding/json"
+	"strconv"
+	"time"
 	"fmt"
 )
 
+func GenTimestamp() string {
+	t := time.Now()
+	nanos := t.UnixNano()
+	millis := nanos / 1000000 //ms 13
+	return strconv.FormatInt(millis,10)
+}
 
 func Serialize(dat map[string]interface{}) string {
 	str, err := json.Marshal(dat)
@@ -32,5 +40,6 @@ func main() {
         fmt.Println("===map 2 json===")
 	str := Serialize(dat)
 	fmt.Println(str)
+	fmt.Println(GenTimestamp())
 }
 
