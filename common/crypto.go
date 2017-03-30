@@ -32,6 +32,18 @@ func GenerateKeyPair() (string,string) {
 	return publicKeyBase58,privateKeyBase58
 }
 
+func GetPubByPriv(priv string) string {
+	return ""
+}
+
+func Sign(priv string,msg string) string {
+        return ""
+}
+
+func Verify(pub string,msg string,sig string) bool {
+        return true
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Please input string to hash(sha3-256)")
