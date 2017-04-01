@@ -4,6 +4,7 @@ import(
 	"os"
 	"fmt"
 	"hash"
+	"bytes"
 	"encoding/hex"
 
 	"golang.org/x/crypto/sha3"
@@ -33,7 +34,13 @@ func GenerateKeyPair() (string,string) {
 }
 
 func GetPubByPriv(priv string) string {
-	return ""
+	privByte := base58.Decode(priv)
+	publicKeyBytes, _, err := ed25519.GenerateKey(bytes.NewReader(privByte))
+	if err != nil {
+                panic(err)
+        }
+	publicKeyBase58 := base58.Encode(publicKeyBytes)
+	return publicKeyBase58
 }
 
 func Sign(priv string,msg string) string {
@@ -53,4 +60,6 @@ func main() {
 	publicKeyBase58,privateKeyBase58 :=GenerateKeyPair()
 	fmt.Println("pub:",publicKeyBase58)
         fmt.Println("priv:",privateKeyBase58)
+	pub2 := GetPubByPriv(privateKeyBase58)
+	fmt.Println("pub2:",pub2)
 }
