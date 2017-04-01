@@ -8,8 +8,8 @@ import(
 	"encoding/hex"
 
 	"golang.org/x/crypto/sha3"
-	"github.com/btcsuite/btcutil/base58"
 	"golang.org/x/crypto/ed25519"
+	"github.com/btcsuite/btcutil/base58"
 )
 
 func HashData(val string) string {
@@ -44,11 +44,21 @@ func GetPubByPriv(priv string) string {
 }
 
 func Sign(priv string,msg string) string {
-        return ""
+	pub := GetPubByPriv(priv)
+	privByte := base58.Decode(priv)
+	pubByte := base58.Decode(pub)
+	privateKey := make([]byte, 64)
+	copy(privateKey[:32], privByte)
+	copy(privateKey[32:], pubByte)
+	sigByte := ed25519.Sign(privateKey,[]byte(msg))
+        return base58.Encode(sigByte)
 }
 
 func Verify(pub string,msg string,sig string) bool {
-        return true
+	pubByte := base58.Decode(pub)
+	publicKey := make([]byte, 32)
+	copy(publicKey, pubByte)
+	return ed25519.Verify(publicKey,[]byte(msg), base58.Decode(sig))
 }
 
 func main() {
@@ -57,9 +67,17 @@ func main() {
 		os.Exit(0)
 	}
 	fmt.Println(HashData(os.Args[1]))
+
 	publicKeyBase58,privateKeyBase58 :=GenerateKeyPair()
 	fmt.Println("pub:",publicKeyBase58)
         fmt.Println("priv:",privateKeyBase58)
+
 	pub2 := GetPubByPriv(privateKeyBase58)
 	fmt.Println("pub2:",pub2)
+
+	sig := Sign(privateKeyBase58,os.Args[1])
+	fmt.Println("sig:",sig)
+
+	result :=Verify(publicKeyBase58,os.Args[1],sig)
+	fmt.Println("verify:",result)
 }
