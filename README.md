@@ -15,6 +15,9 @@ export GOPATH=$HOME/go-path
 3.go cmd
 ```
 $ go run xxx.go
+$ go test
+$ go test -v
+$ go test -v -test.run 
 ```
 ```
 $ go version
