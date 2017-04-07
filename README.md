@@ -21,6 +21,7 @@ $ go test -v -test.run
 
 $ sudo apt-get install golang-golang-x-tools
 $ godoc -http=:8083
+$ nohup godoc -http=:8083 &
 ```
 ```
 $ go version
