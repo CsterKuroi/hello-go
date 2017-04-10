@@ -15,6 +15,13 @@ export GOPATH=$HOME/go-path
 3.go cmd
 ```
 $ go run xxx.go
+$ go test
+$ go test -v
+$ go test -v -test.run 
+
+$ sudo apt-get install golang-golang-x-tools
+$ godoc -http=:8083
+$ nohup godoc -http=:8083 &
 ```
 ```
 $ go version
