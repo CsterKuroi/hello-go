@@ -1,6 +1,6 @@
-#hello-go
+# hello-go
 
-##For Ubuntu16.04 server
+## For Ubuntu16.04 server
 
 1.install by apt-get
 ```
