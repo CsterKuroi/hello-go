@@ -17,6 +17,7 @@ package main
 //	fmt.Println(t.S)
 //}
 //
+//
 //type F float64
 //
 //func (f F) M() {
@@ -28,7 +29,7 @@ package main
 //
 //	i = &T{"Hello"}
 //	describe(i)
-//	i.M()
+//	i.M() // (*i).M()
 //
 //	i = F(math.Pi)
 //	describe(i)

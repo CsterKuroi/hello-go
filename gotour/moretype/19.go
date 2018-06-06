@@ -2,12 +2,13 @@ package main
 
 import "fmt"
 
-func adder() func(int) int {
+func adder() (mm func(x int) int) {
 	sum := 0
-	return func(x int) int {
+	mm = func(x int) int {
 		sum += x
 		return sum
 	}
+	return
 }
 
 func main() {
