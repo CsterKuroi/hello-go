@@ -5,9 +5,17 @@ import (
 	"time"
 )
 
+type jihao interface {
+	Age() string
+}
+
 type MyError struct {
 	When time.Time
 	What string
+}
+
+func (e *MyError) Age() string {
+	return "123"
 }
 
 func (e *MyError) Error() string {
@@ -20,10 +28,15 @@ func run() error {
 		time.Now(),
 		"it didn't work",
 	}
+	//ee.Age()
+}
+
+func keke(err error) {
+	fmt.Println(err.(*MyError).When)
 }
 
 func main() {
 	if err := run(); err != nil {
-		fmt.Println(err)
+		keke(err)
 	}
 }

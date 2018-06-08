@@ -10,6 +10,7 @@ func main() {
 	r := strings.NewReader("Hello, Reader!")
 
 	b := make([]byte, 8)
+	fmt.Println(b)
 	for {
 		n, err := r.Read(b)
 		fmt.Printf("n = %v err = %v b = %v\n", n, err, b)
@@ -18,4 +19,11 @@ func main() {
 			break
 		}
 	}
+
+	//c := make([]string, 8)
+	//d := make([]bool, 8)
+	//e := make([]interface{}, 8)
+	//f := make([]map[string]interface{}, 8)
+	g := make([]int, 8)
+	fmt.Println(g)
 }

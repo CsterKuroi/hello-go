@@ -15,8 +15,8 @@ func (t T) M() {
 	//	fmt.Println("<nil>")
 	//	return
 	//}
-	p :=&t
-	fmt.Println(t.S,"|",t,"|",(*p).S)
+	p := &t
+	fmt.Println(t.S,"|",t,"|",(*p).S,p.S)
 }
 
 func main() {

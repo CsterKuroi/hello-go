@@ -67,3 +67,10 @@ import (
 - http://studygolang.com/articles/2059
 - https://godoc.org/
 - https://play.golang.org/
+
+## Go get
+```
+set http_proxy=http://127.0.0.1:1080
+set https_proxy=http://127.0.0.1:1080
+set ftp_proxy=http://127.0.0.1:1080
+```
