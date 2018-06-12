@@ -24,6 +24,7 @@ func main() {
 		return
 	}
 	// 接收数据
+	socket.Close()
 	data := make([]byte, 4096)
 	read, remoteAddr, err := socket.ReadFromUDP(data)
 	if err != nil {

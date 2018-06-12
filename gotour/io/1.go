@@ -26,6 +26,7 @@ func main() {
 	fmt.Printf("%d bytes: %s\n", n1, string(b1))
 	o2, err := f.Seek(7, 0) //seek
 	check(err)
+
 	b2 := make([]byte, 2)
 	n2, err := f.Read(b2)
 	check(err)

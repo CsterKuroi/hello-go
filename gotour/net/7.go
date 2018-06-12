@@ -26,7 +26,7 @@ func main() {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		panic(err)
+		panic("12312124")
 	}
 	defer resp.Body.Close()
 

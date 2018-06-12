@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
 	"net"
@@ -17,7 +16,7 @@ func chkError3(err error) {
 //单独处理客户端的请求
 func clientHandle(conn net.Conn) {
 	defer conn.Close()
-
+	fmt.Println("new connection")
 	conn.Write([]byte("hello " + time.Now().String()))
 }
 
@@ -30,16 +29,7 @@ func main() {
 	chkError3(err2)
 	fmt.Println("listening...")
 	//goroutine模拟一个请求
-	go func() {
-		time.Sleep(time.Second)
-		fmt.Println("connectiong...")
-		conn, err := net.Dial("tcp", "127.0.0.1:8080")
-		if err != nil {
-			fmt.Println(err)
-		}
-		data, err := bufio.NewReader(conn).ReadString('\n')
-		fmt.Println("get data:", data)
-	}()
+
 	for {
 		conn, err3 := tcplisten.Accept()
 		if err3 != nil {

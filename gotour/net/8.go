@@ -10,6 +10,8 @@ func SayHello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/hello", SayHello)
+	http.HandleFunc("/WORLD", SayHello)
+
 	http.ListenAndServe(":8001", nil)
 
 }

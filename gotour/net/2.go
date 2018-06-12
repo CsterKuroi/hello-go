@@ -1,10 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
+
+	nick "jihaoGoTour/net/tmp/test1"
+	"fmt"
 )
 
 func chkError(err error) {
@@ -25,12 +27,14 @@ func main() {
 	chkError(err2)
 
 	//向tcpconn中写入数据
-	_, err3 := tcpconn.Write([]byte("GET / HTTP/1.0\r\n\r\n"))
+	n, err3 := tcpconn.Write([]byte("GET / HTTP/1.0\r\n\r\n"))
+	fmt.Println(n)
 	chkError(err3)
 
 	//读取tcpconn中的所有数据
 	data, err4 := ioutil.ReadAll(tcpconn)
 	chkError(err4)
 
-	fmt.Println(string(data))
+	//fmt.Println(string(data))
+	nick.Print1(string(data))
 }
